@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>عزبة المطانيخ</title>
+<meta name="description" content="قائمة أغراض الكشتة: اختر وش بتجيب، وتابع التجهيز والحساب مع الربع.">
+<meta property="og:title" content="عزبة المطانيخ">
+<meta property="og:description" content="قائمة أغراض الكشتة: اختر وش بتجيب، وتابع التجهيز والحساب مع الربع.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:image" content="https://phmmzhrani.github.io/azbat-almatanikh/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#2F6A4A">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=El+Messiri:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column like a field notebook; sticky header with trip status and four tabs; content grouped by category. */
+:root{
+  --bg:#ECEEE8; --surface:#F8F9F5; --ink:#1E2622; --muted:#5E6A63; --line:#D3D8CF;
+  --accent:#2F6A4A; --accent-ink:#FFFFFF; --accent-soft:#DCE9E0;
+  --saffron:#B7791A; --saffron-soft:#F3E6CC; --danger:#A23B2C; --danger-soft:#F2DCD7;
+  --f-display:"El Messiri","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --f-brand:"Aref Ruqaa","El Messiri",Tahoma,serif;
+  --f-body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12171A; --surface:#1A2125; --ink:#E6EAE5; --muted:#9AA79F; --line:#2B353A;
+  --accent:#7DBB94; --accent-ink:#0F1A14; --accent-soft:#1F3328;
+  --saffron:#E0A94A; --saffron-soft:#3A2E17; --danger:#E08473; --danger-soft:#3B201B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12171A; --surface:#1A2125; --ink:#E6EAE5; --muted:#9AA79F; --line:#2B353A;
+  --accent:#7DBB94; --accent-ink:#0F1A14; --accent-soft:#1F3328;
+  --saffron:#E0A94A; --saffron-soft:#3A2E17; --danger:#E08473; --danger-soft:#3B201B; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 96px}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:14px 0;border-bottom:1px solid var(--line)}
+.trip{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.trip h1{font-family:var(--f-brand);font-weight:700;font-size:32px;line-height:1.35;margin:0;text-wrap:balance}
+.trip .sub{color:var(--muted);font-size:13px;margin-top:2px}
+.me{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font-size:13px}
+.me b{font-weight:600}
+.progress{margin-top:12px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .3s}
+nav.tabs{display:flex;gap:4px;margin-top:12px;overflow-x:auto}
+nav.tabs button{flex:1;min-width:max-content;border:0;background:none;padding:10px 8px;font-weight:500;color:var(--muted);border-bottom:3px solid transparent}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+nav.tabs .n{font-size:12px;background:var(--line);border-radius:99px;padding:0 7px;margin-inline-start:4px;font-variant-numeric:tabular-nums}
+
+.banner{margin-top:14px;padding:10px 12px;border-radius:var(--r);background:var(--saffron-soft);color:var(--ink);font-size:13px}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 4px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:13px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+section.cat{margin-top:18px}
+.cat-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-bottom:6px;border-bottom:2px solid var(--ink)}
+.cat-h h2{font-family:var(--f-display);font-size:18px;font-weight:500;margin:0;flex:1 1 60%;min-width:0}
+.cat-h .cnt{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.owner{font-size:12px;background:var(--accent-soft);color:var(--ink);border-radius:999px;padding:2px 10px}
+.link{border:0;background:none;color:var(--accent);font-size:13px;font-weight:600;padding:4px 2px}
+.link.danger{color:var(--danger)}
+
+ul.items{list-style:none;margin:0;padding:0}
+li.item{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.tick{width:26px;height:26px;border-radius:7px;border:2px solid var(--muted);background:var(--surface);display:grid;place-items:center;padding:0}
+.tick svg{width:15px;height:15px;opacity:0}
+.tick[aria-checked="true"]{background:var(--accent);border-color:var(--accent)}
+.tick[aria-checked="true"] svg{opacity:1;stroke:var(--accent-ink)}
+.tick:disabled{opacity:.35;cursor:not-allowed}
+.nm{min-width:0}
+.nm .t{font-weight:500}
+li.done .nm .t{text-decoration:line-through;color:var(--muted)}
+.nm .q{color:var(--muted);font-size:13px;margin-inline-start:6px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:2px;font-size:12px;color:var(--muted)}
+.tag{border-radius:6px;padding:0 7px;font-size:12px}
+.tag.sug{background:var(--saffron-soft);color:var(--ink)}
+.who{background:var(--accent-soft);border-radius:999px;padding:0 9px;color:var(--ink)}
+.who.mine{background:var(--accent);color:var(--accent-ink)}
+.act{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:5px 11px;font-size:13px;font-weight:500;white-space:nowrap}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.danger{color:var(--danger);border-color:var(--danger-soft)}
+.btn.ghost{background:none}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-top:14px}
+.card h3{font-family:var(--f-display);font-weight:500;font-size:17px;margin:0 0 10px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row > *{min-width:0}
+.field{display:flex;flex-direction:column;gap:4px;flex:1;min-width:120px}
+.field label{font-size:12px;color:var(--muted)}
+input,select{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%}
+.hint{font-size:12px;color:var(--muted);margin-top:8px}
+
+table.t{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+table.t th,table.t td{text-align:right;padding:8px 6px;border-bottom:1px solid var(--line);font-size:14px}
+table.t th{font-size:12px;color:var(--muted);font-weight:500}
+.scroll{overflow-x:auto}
+.pos{color:var(--accent);font-weight:600}.neg{color:var(--danger);font-weight:600}
+.big{font-family:var(--f-display);font-size:28px;font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--bg);border-radius:8px;padding:10px}
+.stat .l{font-size:12px;color:var(--muted)}
+.stat .v{font-family:var(--f-display);font-size:20px;font-variant-numeric:tabular-nums}
+.transfer{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.transfer .amt{margin-inline-start:auto;font-weight:600;font-variant-numeric:tabular-nums}
+.empty{color:var(--muted);text-align:center;padding:28px 8px}
+
+.sheet{position:fixed;inset:0;z-index:20;background:rgb(0 0 0 / .45);display:grid;place-items:end center}
+.sheet .panel{background:var(--surface);width:100%;max-width:560px;border-radius:16px 16px 0 0;padding:18px max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));max-height:85vh;overflow:auto}
+.sheet h3{font-family:var(--f-display);font-size:20px;margin:0 0 6px}
+.pick{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));inset-inline:0;margin:auto;width:max-content;max-width:90%;background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:999px;font-size:13px;z-index:30}
+.fab{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:max(18px,env(safe-area-inset-left,0px));z-index:6;box-shadow:0 4px 14px rgb(0 0 0 / .18);border-radius:999px;padding:12px 18px;font-size:15px}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+.nmb{border:0;background:none;padding:0;text-align:right;width:100%;display:block}
+.nmb:hover .t{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+.edit-ic{font-size:12px;color:var(--muted);margin-inline-start:6px}
+.cheer{position:fixed;inset:0;z-index:40;display:grid;place-items:center;background:rgb(0 0 0 / .35);cursor:pointer}
+.cheer canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cheer .box{position:relative;background:var(--surface);border:3px solid var(--saffron);border-radius:18px;padding:22px 26px;max-width:min(90vw,420px);text-align:center;animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
+.cheer .kafo{font-family:var(--f-brand);font-size:44px;line-height:1.1;color:var(--saffron);font-weight:700}
+.cheer .line{font-size:17px;margin-top:8px;font-weight:600}
+.cheer .small{font-size:13px;color:var(--muted);margin-top:6px}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.brand{font-family:var(--f-brand);font-size:18px;font-weight:700;color:var(--saffron);line-height:1.3}
+.maplink[hidden]{display:none}
+body.is-locked #fab,body.is-locked nav.tabs,body.is-locked .progress,body.is-locked #meBtn,body.is-locked #tripSub,body.is-locked #mapLink{display:none!important}
+.lockcard{margin-top:28px;text-align:center}
+.wa{background:#1F8F4E;color:#fff;border-color:#1F8F4E;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.sharecard .row{gap:10px}
+.maplink{display:inline-block;margin-top:4px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+details.arc{border:1px solid var(--line);border-radius:var(--r);background:var(--bg);margin-top:10px}
+details.arc summary{cursor:pointer;padding:10px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;list-style:none}
+details.arc summary::-webkit-details-marker{display:none}
+details.arc summary b{font-family:var(--f-display);font-weight:500;font-size:16px}
+details.arc summary .s{font-size:12px;color:var(--muted)}
+details.arc summary .pill{margin-inline-start:auto}
+details.arc .in{padding:0 12px 12px}
+.pill{font-size:12px;border-radius:999px;padding:1px 10px;white-space:nowrap}
+.pill.ok{background:var(--accent-soft);color:var(--ink)}
+.pill.due{background:var(--danger-soft);color:var(--ink)}
+.toast.win{background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:15px;padding:10px 20px}
+@media (prefers-reduced-motion:reduce){.cheer .box{animation:none}}
+</style>
+
+</head>
+<body>
+<div dir="rtl" lang="ar">
+<div class="wrap">
+  <header class="top">
+    <div class="trip">
+      <div>
+        <div class="brand">عزبة المطانيخ</div>
+        <h1 id="tripName">كشتة البر</h1>
+        <div class="sub" id="tripSub">جاري التحميل</div><a class="maplink" id="mapLink" href="#" target="_blank" rel="noopener noreferrer" hidden>الموقع على خرائط جوجل</a>
+      </div>
+      <button class="me" id="meBtn" type="button">أنت: <b id="meName">اختر اسمك</b></button>
+    </div>
+    <div class="progress"><span id="progTxt">0 من 0 جاهز</span><div class="bar"><i id="progBar" style="width:0%"></i></div></div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="items" aria-selected="true">الأغراض</button>
+      <button role="tab" data-tab="mine" aria-selected="false">مهامي<span class="n" id="mineN">0</span></button>
+      <button role="tab" data-tab="people" aria-selected="false">الطلعة<span class="n" id="peopleN">0</span></button>
+      <button role="tab" data-tab="money" aria-selected="false">الحساب</button>
+    </nav>
+  </header>
+  <div id="banner"></div>
+  <main id="view"><p class="empty">جاري تحميل القائمة</p></main>
+</div>
+<button class="btn primary fab" id="fab" type="button">إضافة غرض</button>
+<div id="layer"></div>
+<div id="fx"></div>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- the standing list (template) ---------- */
+/* [catId, name, [[item, qty, suggested(1) or agreed(0)]]] */
+const TEMPLATE=[
+ ["k01","الذبيحة والطبخ",[["ذبيحة","1",0],["رز","كيس كبير",1],["زيت طبخ","علبة",1],["سمن","علبة",1],["مكعبات مرق","علبة",1],["ورق قصدير","2 رول",1],["مكسرات للتزيين","علبة صغيرة",1],["أكياس حفظ اللحم","علبة",1]]],
+ ["k02","البهارات",[["بهارات كبسة","علبة",1],["ملح","علبة",1],["فلفل أسود","علبة",1],["كمون","علبة",1],["كركم","علبة",1],["كزبرة ناشفة","علبة",1],["دارسين أعواد","كيس صغير",1],["هيل حب للطبخ","كيس صغير",1],["قرنفل","كيس صغير",1],["ورق غار","كيس صغير",1],["لومي","كيس صغير",1],["بابريكا","علبة",1],["بهارات مشاوي","علبة",1],["زعفران","علبة صغيرة",1]]],
+ ["k03","عدة العزبة",[["أغراض عزبة الطبخ","كاملة",0],["قدر كبير مع غطاء","1",1],["مقلاة","1",1],["صينية تقديم كبيرة","2",1],["سكاكين وساطور","طقم",1],["لوح تقطيع","1",1],["مغارف وملاعق طبخ","طقم",1],["ملقط وفتاحة علب","1",1],["صحون وأكواب","حسب العدد",1],["طاسات صغيرة","2",1],["أسطوانة غاز ورأس غاز","1",1],["شواية وشبك وأسياخ","1",1],["حافظات أكل","3",1]]],
+ ["k04","القهوة والشاي",[["أغراض القهوة والشاي","كاملة",0],["دلال وترامس","طقم",1],["بن","1 كيلو",1],["هيل للقهوة","ربع كيلو",1],["شاي","علبة",1],["نعناع","ربطتين",1],["سكر","كيس",1],["حليب","حسب الحاجة",1],["تمر","علبة",1],["فناجين وبيالات","طقم",1]]],
+ ["k05","الخضار والفواكه",[["شطة","1",0],["بصل","خيشة وسط",0],["طماطم","صندوق",0],["ثوم","خيشة صغيرة",0],["فلفل حار","1",0],["فلفل أخضر","1",0],["ليمون","كيس",1],["بطاطس","كيس",1],["خيار","كيس",1],["خس","2",1],["جزر","كيس",1],["بقدونس وكزبرة خضراء","ربطتين",1],["بطيخ","1",1],["فواكه","كيس",1]]],
+ ["k06","الفطور والمعلبات",[["فول لونا مقشر","4 علب",0],["بيض","طبق",0],["قشطة المراعي","3 علب",0],["جبن كرافت","6 علب",0],["زيتون صغير","2",0],["عسل","وسط",0],["قشطة تاج","2",0],["تونة كبير","6 علب",0],["معجون طماطم","3 حبات",0],["خبز لبناني","بـ 7 ريال",0],["زبدة","1",1],["مربى","1",1],["زعتر وزيت زيتون","1",1],["حمص معلب","2",1],["إندومي","كرتون صغير",1]]],
+ ["k07","المشروبات",[["مشروبات غازية","حسب العدد",0],["ماء شرب","كرتون",0],["لبن","2",1],["عصيرات","كرتون",1],["ثلج","أكياس",1]]],
+ ["k08","المفرحات",[["مفرحات","حسب العدد",0],["مكسرات","1",1],["شيبس","1",1],["حلويات","1",1],["فشار","1",1]]],
+ ["k09","النار والوقود",[["فحم","كيس",0],["حطب","حزمة",1],["ولاعات وكبريت","2",1],["مشعل فحم","1",1],["بنزين للمولد","جالون",1],["ملقط وشبك للجمر","1",1]]],
+ ["k10","النظافة",[["ليفة غسيل","1",0],["صابون صحون","1",1],["ماء للغسيل","جالون",1],["طشت غسيل","1",1],["صابون يد ومعقم","1",1],["مناديل ومناديل مبللة","2",1],["مناديل مطبخ","رول",1],["أكياس نفايات كبيرة","رول",1],["صحون وكاسات للاستخدام الواحد","طقم",1]]],
+ ["k11","الأدوية والإسعافات",[["أدوية وإسعافات أولية","شنطة",0],["خافض حرارة ومسكن","1",1],["أملاح إرواء","علبة",1],["مضاد حساسية","1",1],["دواء للمعدة","1",1],["مرهم حروق","1",1],["لاصق جروح وشاش وضماد","1",1],["معقم جروح","1",1],["مقص وملقط","1",1],["واقي شمس","1",1],["طارد حشرات","1",1]]],
+ ["k12","التخييم والنوم",[["خيمة أو بيت شعر","1",1],["زل أو سجاد أرضي","2",1],["فرش ومخدات","حسب العدد",1],["بطانيات خفيفة","حسب العدد",1],["شبك ظل أو مظلة","1",1],["كشافات وفوانيس","3",1],["مولد كهرباء","1",1],["تمديدات وأفياش","2",1],["باور بانك وشواحن سيارة","2",1],["كراسي","حسب العدد",1],["طاولة","1",1],["ثلاجة تبريد","1",1],["مروحة","1",1],["حبال وأوتاد ومطرقة","طقم",1],["سماعة","1",1]]],
+ ["k13","السيارات والسلامة",[["ضاغط هواء","1",1],["مقياس ضغط الإطارات","1",1],["حبل سحب وشكل","1",1],["ألواح غرز","2",1],["مجرفة","1",1],["رافعة وإطار احتياطي","1",1],["كيابل اشتراك البطارية","1",1],["طفاية حريق","1",1],["ماء احتياطي للطوارئ","كرتون",1]]]
+];
+
+/* ---------- cheers ---------- */
+const CHEER_ITEM=["كفو يا {n}!","مطنوخ وابن مطنوخ يا {n}","كفو والله يا {n}","ما قصرت يا {n}","ذيب يا {n}!","الله يعطيك العافية يا {n}","يا زينك يا {n}، صار عليك"];
+const CHEER_CAT=[["يا المطنوخ!","{n} شال {c} كاملة","هذي عزبة المطانيخ صدق"],["كفووو!","{n} شال الفئة كاملة: {c}","الشباب يرفعون لك العقال"],["يا سلام!","{c} كلها على {n}","هذا اللي نبيه، رجال الكشتات"],["ذيييب!","{n} تكفل بـ {c} من أولها لآخرها","الكشتة ما تقوم إلا بأمثالك"],["أبو الكرم!","{c} صارت مسؤولية {n}","الله لا يخليك منا"]];
+const CHEER_DONE=["جهزته، كفو!","تمام، واحد أقل","شغل نظيف"];
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const fill=(s,o)=>s.replace("{n}",o.n||"").replace("{c}",o.c||"");
+
+/* ---------- state ---------- */
+const S={trip:{name:"كشتة البر",date:"",place:""},cats:[],items:[],members:[],expenses:[],
+  me:null,tab:"items",filter:"all",payments:[],archive:[],loaded:{cats:0,items:0,members:0,expenses:0,payments:0,archive:0},mode:"loading",readOnly:false,confirm:null,busy:false};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const money=n=>(Math.round(n*100)/100).toLocaleString("en-US",{maximumFractionDigits:2});
+const mem=id=>S.members.find(m=>m.id===id);
+const nameOf=id=>{const m=mem(id);return m?m.name:"";};
+const norm=s=>String(s||"").trim().replace(/\s+/g," ");
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+S.me=ls.get("azba.me")||null;
+const savedTab=ls.get("azba.tab"); if(["items","mine","people","money"].includes(savedTab)) S.tab=savedTab;
+
+/* ---------- storage: Supabase (all access goes through key-checked database functions) ---------- */
+const CFG=Object.assign({url:"https://heqxadgkmfmqvepbnagu.supabase.co",key:"sb_publishable_gemGyLvnP7ONXLt3A5ktIQ_z5DD7uY-",poll:3000},window.AZBA_CONFIG||{});
+let GK=null, ADMIN=ls.get("azba.admin")||"", lastRev=0, pulling=null, pollTimer=0, failCount=0;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function errOf(status,body){ let j=null; try{ j=JSON.parse(body); }catch(e){} const code=j&&j.code; const msg=(j&&(j.message||j.hint))||body||"";
+  if(code==="42501"||/forbidden/.test(msg)) return {code:/admin/.test(msg)?"admin_required":"forbidden",message:msg};
+  if(status>=500||status===0) return {code:"unavailable",message:msg};
+  return {code:"invalid_argument",message:msg}; }
+async function rpc(fn,args){
+  for(let i=0;;i++){
+    let res, body="";
+    try{ res=await fetch(CFG.url+"/rest/v1/rpc/"+fn,{method:"POST",headers:{"apikey":CFG.key,"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(Object.assign({k:GK},args))});
+      body=await res.text(); }
+    catch(e){ res={ok:false,status:0}; }
+    if(res.ok){ return body?JSON.parse(body):null; }
+    const err=errOf(res.status,body);
+    if(err.code==="unavailable"&&i<3){ await sleep(500*(i+1)+Math.random()*300); continue; }
+    throw err;
+  }
+}
+async function parallel(fns,n){ n=n||8; let i=0; const run=async()=>{ while(i<fns.length){ const f=fns[i++]; await f(); } }; await Promise.all(Array.from({length:Math.min(n,fns.length)},run)); }
+const DOCS={meta:{},cats:{},items:{},members:{},expenses:{},payments:{},archive:{}};
+function applyRows(rows){
+  let changed=false;
+  for(const r of rows||[]){
+    const box=DOCS[r.col]; if(!box) continue;
+    const cur=box[r.id];
+    if(cur&&cur.rev>=r.rev) continue;
+    box[r.id]=r.deleted?{rev:r.rev,deleted:true}:{rev:r.rev,data:r.data};
+    if(r.rev>lastRev) lastRev=r.rev;
+    changed=true;
+  }
+  if(!changed&&S.loaded.cats) return;
+  const arr=c=>Object.entries(DOCS[c]).filter(([,v])=>!v.deleted&&v.data).map(([id,v])=>Object.assign({id},v.data));
+  const t=DOCS.meta.trip; S.trip=Object.assign({name:"كشتة البر",place:"",map:"",date:"",endDate:"",time:""},t&&!t.deleted&&t.data?t.data:{});
+  for(const c of ["cats","items","members","expenses","payments","archive"]){ S[c]=arr(c); S.loaded[c]=1; }
+  render();
+}
+function pull(force){
+  if(pulling) return force?pulling.then(()=>pull()):pulling;
+  pulling=(async()=>{
+    try{ const rows=await rpc("azba_pull",{since:Math.max(0,lastRev-20)}); failCount=0; if(S.offline){ S.offline=false; render(); } applyRows(rows); }
+    catch(e){ if(e.code==="forbidden"){ lock("bad"); return; } failCount++; if(failCount>1&&!S.offline){ S.offline=true; render(); } }
+    finally{ pulling=null; }
+  })();
+  return pulling;
+}
+function schedule(){ clearTimeout(pollTimer); if(document.hidden) return; pollTimer=setTimeout(async()=>{ await pull(); schedule(); },CFG.poll); }
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden&&GK){ pull(); schedule(); } });
+const store={
+  async set(col,id,data){ const v=await rpc("azba_set",{c:col,i:id,doc:data}); await pull(true); return v; },
+  async update(col,id,data){ const v=await rpc("azba_patch",{c:col,i:id,patch:data}); await pull(true); return v; },
+  async del(col,id){ const v=await rpc("azba_delete",{c:col,i:id,admin:col==="archive"?ADMIN:null}); await pull(true); return v; },
+  async get(col,id){ return await rpc("azba_get",{c:col,i:id}); },
+  async add(col,data){ const id=col[0]+Date.now().toString(36)+Math.random().toString(36).slice(2,6); await store.set(col,id,data); return id; }
+};
+async function checkAdmin(pin){ try{ return !!(await rpc("azba_admin",{admin:pin})); }catch(e){ return false; } }
+
+/* ---------- access key: arrives in the WhatsApp link (#k=...), kept on this phone ---------- */
+function readKey(){
+  const m=/[#&]k=([A-Za-z0-9]{12,64})/.exec(location.hash||"");
+  if(m){ ls.set("azba.k",m[1]); try{ history.replaceState(null,"",location.pathname+location.search); }catch(e){} return m[1]; }
+  return ls.get("azba.k")||null;
+}
+function lock(why){
+  S.locked=why; clearTimeout(pollTimer);
+  if(why==="bad") ls.set("azba.k","");
+  document.body.classList.add("is-locked");
+  $("#view").innerHTML='<div class="card lockcard"><h3>'+(why==="bad"?"الرابط انتهى أو تغيّر":"الدخول بالرابط فقط")+'</h3><p>'+(why==="bad"?"اطلب الرابط الجديد من قروب الواتساب، وافتحه من نفس الجوال.":"هذي صفحة خاصة بربع الكشتة. افتحها من الرابط اللي انرسل في قروب الواتساب.")+'</p></div>';
+}
+async function boot(){
+  GK=readKey();
+  if(!GK){ lock("none"); return; }
+  await pull(); schedule();
+}
+
+
+/* ---------- derived ---------- */
+const sortedCats=()=>S.cats.slice().sort((a,b)=>(a.order||0)-(b.order||0));
+const itemsOf=cid=>S.items.filter(i=>i.cat===cid).sort((a,b)=>(a.t||0)-(b.t||0));
+const approved=()=>S.items.filter(i=>!i.sug);
+const catName=cid=>{const c=S.cats.find(x=>x.id===cid);return c?c.name:"";};
+
+/* ---------- actions ---------- */
+async function guard(fn){
+  if(S.readOnly){ toast("صلاحيتك للعرض فقط"); return false; }
+  try{ await fn(); return true; }
+  catch(e){ if(e&&e.code==="forbidden"){ lock("bad"); return false; } toast(e&&e.code==="admin_required"?"يحتاج رمز المشرف":"ما تم الحفظ، تأكد من الاتصال وحاول مرة ثانية"); return false; }
+}
+function needMe(){ if(S.me&&mem(S.me)) return true; openWho(); return false; }
+
+const act={
+  async claim(id){ if(!needMe()) return;
+    let taken=null;
+    const ok=await guard(async()=>{ const cur=await store.get("items",id); if(!cur) throw {code:"gone"};
+      if(cur.by&&cur.by!==S.me){ taken=cur.by; return; } await store.update("items",id,{by:S.me}); });
+    if(taken){ show("سبقك "+(nameOf(taken)||"أحد الشباب")+" عليه","",4500); return; }
+    if(!ok) return;
+    winToast(fill(pick(CHEER_ITEM),{n:nameOf(S.me)}));
+    /* if two people tapped at the same moment, the later write wins: tell the loser */
+    await sleep(900); try{ const cur=await store.get("items",id); if(cur&&cur.by&&cur.by!==S.me) show("سبقك "+(nameOf(cur.by)||"أحد الشباب")+" عليه","",4500); }catch(e){} },
+  async unclaim(id){ await guard(()=>store.update("items",id,{by:"",done:false})); },
+  async tick(id){ const it=S.items.find(i=>i.id===id); if(!it) return;
+    if(!it.by){ toast("حدد من يجيبه أول"); return; }
+    const ok=await guard(()=>store.update("items",id,{done:!it.done}));
+    if(ok&&!it.done) toast(pick(CHEER_DONE)); },
+  async approve(id){ if(await guard(()=>store.update("items",id,{sug:false}))) toast("اعتمد في القائمة"); },
+  async approveCat(cid){ const list=itemsOf(cid).filter(i=>i.sug);
+    if(await guard(()=>parallel(list.map(it=>()=>store.update("items",it.id,{sug:false}))))) toast("اعتمد "+list.length+" غرض"); },
+  async claimCat(cid){ if(!needMe()) return;
+    let n=0;
+    const free=itemsOf(cid).filter(it=>!it.by); n=free.length;
+    const ok=await guard(async()=>{ await store.update("cats",cid,{owner:S.me});
+      await parallel(free.map(it=>()=>store.update("items",it.id,{by:S.me}))); });
+    if(ok) celebrate(catName(cid),n); },
+  async unclaimCat(cid){ await guard(async()=>{ await store.update("cats",cid,{owner:""});
+      await parallel(itemsOf(cid).filter(it=>it.by===S.me&&!it.done).map(it=>()=>store.update("items",it.id,{by:""}))); }); },
+  async delExp(id){ if(S.confirm!==id){ S.confirm=id; render(); return; } S.confirm=null; await guard(()=>store.del("expenses",id)); },
+  async delMember(id){
+    if(S.expenses.some(e=>e.by===id)||S.payments.some(x=>x.from===id||x.to===id)){ S.confirm=null; render(); toast("له مصاريف أو تحويلات مسجلة. عدّلها باسم شخص آخر أو احذفها أول، عشان ما يختل الحساب"); return; }
+    if(S.confirm!==id){ S.confirm=id; render(); return; } S.confirm=null;
+    await guard(async()=>{ await parallel(S.items.filter(it=>it.by===id).map(it=>()=>store.update("items",it.id,{by:"",done:false})).concat(
+        S.cats.filter(c=>c.owner===id).map(c=>()=>store.update("cats",c.id,{owner:""}))));
+      await store.del("members",id); });
+    if(S.me===id){ S.me=null; ls.set("azba.me",""); render(); } },
+  async share(id,v){ const n=Math.max(0,parseFloat(v)); await guard(()=>store.update("members",id,{share:isNaN(n)?1:n})); }
+};
+
+async function runBusy(fn){ if(S.busy) return; S.busy=true; render(); try{ await fn(); } finally{ S.busy=false; render(); } }
+async function loadTemplate(){
+  await runBusy(()=>guard(async()=>{ let t=Date.now(); const jobs=[];
+    for(let o=0;o<TEMPLATE.length;o++){ const [cid,cname,list]=TEMPLATE[o];
+      jobs.push(()=>store.set("cats",cid,{name:cname,order:o+1,owner:""}));
+      for(let k=0;k<list.length;k++){ const [n,q,s]=list[k], tt=t++;
+        jobs.push(()=>store.set("items",cid+"i"+String(k+1).padStart(2,"0"),{name:n,qty:q,cat:cid,by:"",done:false,sug:!!s,addedBy:"",t:tt})); } }
+    await parallel(jobs,10);
+  }));
+  toast("تم تحميل القائمة الأساسية");
+}
+function snapshot(){
+  const R=settle(), T=S.trip, ap=approved();
+  return {name:T.name||"كشتة البر",place:T.place||"",map:T.map||"",date:T.date||"",endDate:T.endDate||"",time:T.time||"",archivedAt:Date.now(),
+    total:R.total,
+    members:R.people.map(p=>({name:p.name,share:p.share,paid:p.paid,due:p.due})),
+    expenses:S.expenses.slice().sort((a,b)=>(a.t||0)-(b.t||0)).map(e=>({note:e.note||"",by:nameOf(e.by)||"عضو محذوف",amount:+e.amount||0})),
+    payments:S.payments.slice().sort((a,b)=>(a.t||0)-(b.t||0)).map(x=>({from:nameOf(x.from)||"عضو محذوف",to:nameOf(x.to)||"عضو محذوف",amount:+x.amount||0})),
+    transfers:R.tx.map(t=>({from:t.from,to:t.to,amt:Math.round(t.amt*100)/100,paid:false})),
+    items:{total:ap.length,done:ap.filter(i=>i.done).length}};
+}
+async function newTrip(){
+  let archived=false;
+  await runBusy(()=>guard(async()=>{
+    const T=S.trip;
+    if(S.expenses.length||S.members.length||T.date||T.place){ await store.set("archive","a"+Date.now().toString(36),snapshot()); archived=true; }
+    await parallel(S.items.filter(i=>i.by||i.done).map(i=>()=>store.update("items",i.id,{by:"",done:false}))
+      .concat(S.cats.filter(c=>c.owner).map(c=>()=>store.update("cats",c.id,{owner:""})))
+      .concat(S.expenses.map(e=>()=>store.del("expenses",e.id)))
+      .concat(S.payments.map(x=>()=>store.del("payments",x.id))),10);
+    await store.set("meta","trip",{name:T.name||"كشتة البر",place:"",map:"",date:"",endDate:"",time:""});
+  }));
+  toast(archived?"انحفظت الطلعة في الأرشيف، وجاهزين لطلعة جديدة":"جاهزين لطلعة جديدة");
+}
+
+/* ---------- render ---------- */
+let lastHtml=null, rq=0;
+function render(){ if(rq) return; rq=requestAnimationFrame(()=>{ rq=0; draw(); }); }
+function draw(){
+  const allLoaded=Object.values(S.loaded).every(Boolean);
+  const T=S.trip;
+  $("#tripName").textContent=T.name||"كشتة البر";
+  const parts=[T.place,whenText(T)].filter(Boolean);
+  $("#tripSub").textContent=parts.length?parts.join(" · "):"أضف المكان والتاريخ والموقع من تبويب الطلعة";
+  const ml=$("#mapLink"), mu=safeUrl(T.map); ml.hidden=!mu; if(mu) ml.href=mu;
+  if(S.me&&allLoaded&&DOCS.members[S.me]&&DOCS.members[S.me].deleted){ S.me=null; ls.set("azba.me",""); }
+  const me=mem(S.me); $("#meName").textContent=me?me.name:"اختر اسمك";
+  const ap=approved(), done=ap.filter(i=>i.done).length;
+  $("#progTxt").textContent=done+" من "+ap.length+" جاهز";
+  $("#progBar").style.width=(ap.length?Math.round(done/ap.length*100):0)+"%";
+  $("#mineN").textContent=S.items.filter(i=>S.me&&i.by===S.me&&!i.done).length;
+  $("#peopleN").textContent=S.members.length;
+  document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===S.tab)));
+  let ban="";
+  if(S.locked) return;
+  if(S.offline) ban='<div class="banner">ما فيه اتصال بالإنترنت. تعديلاتك ما بتنحفظ حتى يرجع الاتصال.</div>';
+  else if(S.readOnly) ban='<div class="banner">تقدر تشوف القائمة، لكن صلاحيتك لا تسمح بالتعديل. اطلب من صاحب الصفحة صلاحية مشارك.</div>';
+  if(S.busy) ban+='<div class="banner">جاري الحفظ، لحظات</div>';
+  $("#banner").innerHTML=ban;
+  $("#fab").hidden=!(S.tab==="items"||S.tab==="mine")||!S.cats.length;
+  if(!allLoaded){ $("#view").innerHTML='<p class="empty">جاري تحميل القائمة</p>'; lastHtml=null; return; }
+  const html=({items:vItems,mine:vMine,people:vPeople,money:vMoney})[S.tab]();
+  if(html===lastHtml) return;   /* nothing visible changed: keep the DOM so taps are never lost */
+  lastHtml=html;
+  const ae=document.activeElement, keepId=ae&&ae.id&&ae.closest("#view")?ae.id:null;
+  const keepVal=keepId&&ae.tagName==="INPUT"&&ae.type!=="number"?ae.value:null;
+  $("#view").innerHTML=html;
+  if(keepId){ const el=document.getElementById(keepId); if(el){ if(keepVal!=null) el.value=keepVal; el.focus(); } }
+}
+function safeUrl(u){ u=String(u||"").trim(); return /^https:\/\/[^\s"'<>]+$/i.test(u)?u:""; }
+function isMapUrl(u){ return /^https:\/\/((www\.)?google\.[a-z.]+\/maps|maps\.google\.[a-z.]+|maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(u); }
+function fmtTime(t){ if(!t) return ""; const [h,m]=t.split(":").map(Number); if(isNaN(h)) return t; const ap=h<12?"ص":"م", hh=h%12||12; return hh+":"+String(m||0).padStart(2,"0")+" "+ap; }
+function whenText(T){ let w=T.date?fmtDate(T.date):""; if(T.time) w+=(w?" ":"")+"الساعة "+fmtTime(T.time); if(T.endDate&&T.endDate!==T.date) w+=" إلى "+fmtDate(T.endDate); return w; }
+function fmtDate(d){ try{ return new Date(d+"T00:00:00").toLocaleDateString("ar-SA-u-ca-gregory-nu-latn",{weekday:"long",day:"numeric",month:"long"}); }catch(e){ return d; } }
+const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+function itemRow(it,opts){
+  opts=opts||{};
+  const mine=!!S.me&&it.by===S.me, who=it.by?nameOf(it.by):"";
+  const q=it.qty?'<span class="q">'+esc(it.qty)+'</span>':"";
+  let meta="";
+  if(it.sug) meta+='<span class="tag sug">مقترح'+(it.addedBy&&nameOf(it.addedBy)?" من "+esc(nameOf(it.addedBy)):"")+'</span>';
+  if(opts.showCat) meta+='<span>'+esc(catName(it.cat))+'</span>';
+  if(it.by&&!opts.hideWho) meta+='<span class="who'+(mine?" mine":"")+'">'+(mine?"أنت":esc(who||"عضو محذوف"))+'</span>';
+  if(!it.by) meta+='<span>ما أحد أخذه</span>';
+  let a="";
+  if(it.sug) a+='<button class="btn" data-a="approve" data-id="'+it.id+'">اعتمد</button>';
+  if(!it.by) a+='<button class="btn primary" data-a="claim" data-id="'+it.id+'">أنا أجيبه</button>';
+  else if(mine&&!it.done) a+='<button class="link" data-a="unclaim" data-id="'+it.id+'">تراجع</button>';
+  return '<li class="item'+(it.done?" done":"")+'" data-item="'+it.id+'"><button class="tick" role="checkbox" aria-checked="'+!!it.done+'" aria-label="تم تجهيز '+esc(it.name)+'" data-a="tick" data-id="'+it.id+'"'+(it.by?"":' disabled title="حدد من يجيبه أول"')+'>'+CHECK+'</button>'
+   +'<div class="nm"><button class="nmb" data-a="edit" data-id="'+it.id+'" aria-label="تعديل '+esc(it.name)+'"><span class="t">'+esc(it.name)+'</span>'+q+'<span class="edit-ic">تعديل</span></button><div class="meta">'+meta+'</div></div><div class="act">'+a+'</div></li>';
+}
+
+function vItems(){
+  if(!S.cats.length) return '<div class="card"><h3>القائمة فاضية</h3><p>ابدأ بالقائمة الأساسية اللي تاخذونها كل طلعة، وبعدها كل واحد يضيف ويعدل ويحذف حسب الاتفاق.</p><button class="btn primary" data-a="template"'+(S.busy?" disabled":"")+'>تحميل القائمة الأساسية</button></div>';
+  const F=S.filter;
+  const filt=it=>F==="all"||(F==="free"&&!it.by)||(F==="left"&&!it.done&&!it.sug)||(F==="sug"&&it.sug);
+  const counts={free:S.items.filter(i=>!i.by).length,left:S.items.filter(i=>!i.done&&!i.sug).length,sug:S.items.filter(i=>i.sug).length};
+  let h='<div class="filters">'+[["all","الكل"],["free","بدون مسؤول "+counts.free],["left","ناقص "+counts.left],["sug","مقترحات "+counts.sug]]
+    .map(([k,l])=>'<button class="chip" data-a="filter" data-f="'+k+'" aria-pressed="'+(F===k)+'">'+l+'</button>').join("")+'</div>';
+  if(F==="all") h+='<p class="hint" style="margin-top:4px">اضغط على اسم أي غرض لتعديل الكمية أو الاسم أو الفئة.</p>';
+  let any=false;
+  for(const c of sortedCats()){
+    const all=itemsOf(c.id), list=all.filter(filt); if(!list.length&&F!=="all") continue; any=true;
+    const d=all.filter(i=>i.done).length, own=c.owner?nameOf(c.owner):"", sugN=all.filter(i=>i.sug).length;
+    let ch="";
+    if(c.owner) ch='<span class="owner">مسؤول الفئة: '+(c.owner===S.me?"أنت":esc(own||"عضو محذوف"))+'</span>'+(c.owner===S.me?'<button class="link" data-a="unclaimCat" data-id="'+c.id+'">تراجع</button>':"");
+    else ch='<button class="link" data-a="claimCat" data-id="'+c.id+'">أتكفل بالفئة كاملة</button>';
+    if(sugN) ch+='<button class="link" data-a="approveCat" data-id="'+c.id+'">اعتماد المقترحات ('+sugN+')</button>';
+    h+='<section class="cat" data-cat="'+c.id+'"><div class="cat-h"><h2>'+esc(c.name)+'</h2><span class="cnt">'+d+"/"+all.length+'</span>'+ch+'</div><ul class="items">'
+      +(list.length?list.map(i=>itemRow(i)).join(""):'<li class="empty" style="padding:12px">لا يوجد أصناف</li>')+'</ul></section>';
+  }
+  if(!any) h+='<p class="empty">لا يوجد شيء في هذا الفلتر</p>';
+  return h;
+}
+
+function vMine(){
+  const me=mem(S.me);
+  if(!me) return '<div class="card"><h3>من أنت؟</h3><p>اختر اسمك عشان تظهر لك أغراضك.</p><button class="btn primary" data-a="who">اختيار الاسم</button></div>';
+  const mine=S.items.filter(i=>i.by===S.me);
+  const left=mine.filter(i=>!i.done), done=mine.filter(i=>i.done);
+  const myCats=S.cats.filter(c=>c.owner===S.me).map(c=>esc(c.name));
+  let h='<div class="card"><h3>أغراضك يا '+esc(me.name)+'</h3><div class="stats"><div class="stat"><div class="l">المطلوب</div><div class="v" id="mTotal">'+mine.length+'</div></div><div class="stat"><div class="l">جاهز</div><div class="v">'+done.length+'</div></div><div class="stat"><div class="l">باقي</div><div class="v">'+left.length+'</div></div></div>'
+    +(myCats.length?'<p class="hint">مسؤول عن: '+myCats.join("، ")+'</p>':"")+'</div>';
+  if(!mine.length) return h+'<p class="empty">ما أخذت شيء للحين. روح لتبويب الأغراض واختر اللي تجيبه.</p>';
+  h+='<section class="cat"><div class="cat-h"><h2>باقي عليك</h2></div><ul class="items">'+(left.map(i=>itemRow(i,{hideWho:1,showCat:1})).join("")||'<li class="empty" style="padding:12px">خلصت كل شيء، كفو</li>')+'</ul></section>';
+  if(done.length) h+='<section class="cat"><div class="cat-h"><h2>جاهز</h2></div><ul class="items">'+done.map(i=>itemRow(i,{hideWho:1,showCat:1})).join("")+'</ul></section>';
+  h+='<div class="card"><h3>دفعت شيء؟</h3><p class="hint" style="margin-top:0">سجل المبلغ بعد الشراء عشان يدخل في تقسيم الحساب.</p><button class="btn primary" data-a="expense">تسجيل مصروف</button></div>';
+  return h;
+}
+
+function vPeople(){
+  const T=S.trip;
+  let h='<div class="card"><h3>المشاركون</h3>';
+  if(!S.members.length) h+='<p class="empty" style="padding:12px">ما أحد سجل للحين. أضف اسمك أول واحد.</p>';
+  else{
+    h+='<div class="scroll"><table class="t"><thead><tr><th>الاسم</th><th>الأغراض</th><th>جاهز</th><th>الحصة</th><th></th></tr></thead><tbody>';
+    for(const m of S.members.slice().sort((a,b)=>(a.t||0)-(b.t||0))){
+      const its=S.items.filter(i=>i.by===m.id), d=its.filter(i=>i.done).length;
+      const del=S.confirm===m.id?'<button class="btn danger" data-a="delMember" data-id="'+m.id+'">احذف</button> <button class="btn ghost" data-a="cancel">لا</button>':'<button class="link danger" data-a="delMember" data-id="'+m.id+'">حذف</button>';
+      h+='<tr data-member="'+esc(m.name)+'"><td>'+esc(m.name)+(m.id===S.me?' <span class="who mine">أنت</span>':"")+'</td><td>'+its.length+'</td><td>'+d+'</td><td><input id="sh-'+m.id+'" type="number" min="0" step="0.5" inputmode="decimal" value="'+(m.share==null?1:m.share)+'" data-share="'+m.id+'" style="width:64px;padding:4px 6px" aria-label="حصة '+esc(m.name)+'"></td><td>'+del+'</td></tr>';
+    }
+    h+='</tbody></table></div><p class="hint">الحصة تحدد نصيب كل واحد من الحساب. الافتراضي 1 للشخص، وتقدر تخلي العائلة 2 أو 3، أو 0 لمن ما يشارك في الدفع.</p>';
+  }
+  h+='<div class="row" style="margin-top:10px"><div class="field"><label for="newMem">إضافة مشارك</label><input id="newMem" placeholder="الاسم" maxlength="30"></div><div class="field" style="flex:0 0 auto;justify-content:flex-end"><button class="btn primary" data-a="addMember">إضافة</button></div></div></div>';
+  h+='<div class="card"><h3>إدارة القائمة</h3><div class="row"><button class="btn" data-a="copy">نسخ ملخص للواتساب</button><button class="btn" data-a="newCat">فئة جديدة</button>'
+   +(S.confirm==="reset"?'<button class="btn danger" data-a="reset">أكد: أرشفة وبدء طلعة جديدة</button><button class="btn ghost" data-a="cancel">إلغاء</button>':'<button class="btn danger" data-a="reset"'+(S.busy?" disabled":"")+'>أرشفة وبدء طلعة جديدة</button>')
+   +'</div><p class="hint">تنحفظ الطلعة الحالية كاملة في الأرشيف (المكان والموقع والتاريخ والمشاركون والمصاريف وحالة الدفع)، ثم تبقى القائمة بآخر تعديلاتكم وأسماء المشاركين، وتتصفر المسؤوليات والتأشير والمصاريف.</p></div>';
+  h+=vArchive();
+  return tripCard(T)+shareCard()+h;
+}
+
+function tripCard(T){
+  const mu=safeUrl(T.map);
+  return '<div class="card"><h3>بيانات الطلعة</h3><div class="row"><div class="field" style="flex-basis:100%"><label for="tName">اسم الطلعة</label><input id="tName" value="'+esc(T.name)+'" maxlength="40"></div>'
+   +'<div class="field" style="flex-basis:100%"><label for="tPlace">المكان</label><input id="tPlace" value="'+esc(T.place)+'" placeholder="مثال: نفود الثويرات" maxlength="40"></div>'
+   +'<div class="field" style="flex-basis:100%"><label for="tMap">رابط الموقع من خرائط جوجل</label><input id="tMap" type="url" inputmode="url" dir="ltr" value="'+esc(T.map)+'" placeholder="https://maps.app.goo.gl/..."></div>'
+   +'<div class="field"><label for="tDate">من تاريخ</label><input id="tDate" type="date" value="'+esc(T.date)+'"></div>'
+   +'<div class="field"><label for="tEnd">إلى تاريخ</label><input id="tEnd" type="date" value="'+esc(T.endDate)+'"></div>'
+   +'<div class="field"><label for="tTime">وقت التحرك</label><input id="tTime" type="time" value="'+esc(T.time)+'"></div></div>'
+   +'<p class="hint">من تطبيق خرائط جوجل: اضغط على المكان، ثم مشاركة، ثم نسخ الرابط والصقه هنا.</p>'
+   +'<div class="row" style="margin-top:10px"><button class="btn primary" data-a="saveTrip">حفظ</button>'+(mu?'<a class="maplink" href="'+esc(mu)+'" target="_blank" rel="noopener noreferrer" style="align-self:center">افتح الموقع</a>':"")+'</div></div>';
+}
+const openArc=new Set();
+document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.matches&&d.matches("details.arc")){ if(d.open) openArc.add(d.dataset.arc); else openArc.delete(d.dataset.arc); lastHtml=null; } },true);
+function inviteLink(){ return location.origin+location.pathname+"#k="+GK; }
+function inviteText(){
+  const T=S.trip; let t="عزبة المطانيخ\n"+(T.name||"كشتة البر")+(T.place?" - "+T.place:"")+"\n";
+  if(whenText(T)) t+=whenText(T)+"\n";
+  if(safeUrl(T.map)) t+="الموقع: "+safeUrl(T.map)+"\n";
+  return t+"\nادخل القائمة واختر وش بتجيب:\n"+inviteLink();
+}
+const waHref=t=>"https://wa.me/?text="+encodeURIComponent(t);
+function shareCard(){
+  return '<div class="card sharecard"><h3>المشاركة في القروب</h3><div class="row">'
+   +'<a class="btn wa" id="waInvite" href="'+esc(waHref(inviteText()))+'" target="_blank" rel="noopener">شارك رابط الكشتة بالواتساب</a>'
+   +'<a class="btn wa" id="waSummary" href="'+esc(waHref(summaryText()+"\n"+inviteLink()))+'" target="_blank" rel="noopener">أرسل ملخص الأغراض والحساب</a>'
+   +'<button class="btn" data-a="copyLink">نسخ الرابط</button></div>'
+   +'<p class="hint">الرابط فيه مفتاح الدخول، فأرسله لقروب الكشتة فقط.</p></div>';
+}
+function vArchive(){
+  const list=S.archive.slice().sort((a,b)=>(b.date||"").localeCompare(a.date||"")||(b.archivedAt||0)-(a.archivedAt||0));
+  let h='<div class="card"><h3>أرشيف الطلعات</h3>';
+  if(!list.length) return h+'<p class="hint" style="margin-top:0">لا يوجد طلعات مؤرشفة. أول ما تبدأون طلعة جديدة، تنحفظ الحالية هنا بكل تفاصيلها.</p></div>';
+  for(const a of list){
+    const pend=(a.transfers||[]).filter(t=>!t.paid), mu=safeUrl(a.map);
+    h+='<details class="arc" data-arc="'+a.id+'"'+(openArc.has(a.id)?" open":"")+'><summary><b>'+esc(a.name)+'</b><span class="s">'+esc(whenText(a)||"بدون تاريخ")+'</span><span class="pill '+(pend.length?"due":"ok")+'">'+(pend.length?"باقي "+pend.length+" تحويل":"مسدد")+'</span></summary><div class="in">'
+     +'<p style="margin:0 0 6px">'+(a.place?esc(a.place):"بدون اسم مكان")+(mu?' · <a class="maplink" href="'+esc(mu)+'" target="_blank" rel="noopener noreferrer">الموقع على الخريطة</a>':"")+'</p>'
+     +'<p class="hint" style="margin-top:0">المشاركون: '+((a.members||[]).map(m=>esc(m.name)).join("، ")||"لا أحد")+' · الأغراض الجاهزة: '+((a.items||{}).done||0)+' من '+((a.items||{}).total||0)+'</p>'
+     +'<div class="big" style="font-size:22px">'+money(a.total||0)+' ريال</div>';
+    if((a.members||[]).length) h+='<div class="scroll"><table class="t"><thead><tr><th>الاسم</th><th>الحصة</th><th>صرف</th><th>نصيبه</th></tr></thead><tbody>'+a.members.map(m=>'<tr><td>'+esc(m.name)+'</td><td>'+m.share+'</td><td>'+money(m.paid||0)+'</td><td>'+money(m.due||0)+'</td></tr>').join("")+'</tbody></table></div>';
+    if((a.expenses||[]).length) h+='<p class="hint">المصاريف</p><div class="scroll"><table class="t"><tbody>'+a.expenses.map(e=>'<tr><td>'+esc(e.note||"بدون وصف")+'</td><td>'+esc(e.by)+'</td><td>'+money(e.amount)+'</td></tr>').join("")+'</tbody></table></div>';
+    if((a.payments||[]).length) h+='<p class="hint">حوّلوا قبل الأرشفة</p>'+a.payments.map(x=>'<div class="transfer"><b>'+esc(x.from)+'</b><span>حوّل إلى</span><b>'+esc(x.to)+'</b><span class="amt">'+money(x.amount)+' ريال</span><span class="pill ok">مدفوع</span></div>').join("");
+    if((a.transfers||[]).length) h+='<p class="hint">التسوية</p>'+a.transfers.map((t,i)=>'<div class="transfer"><b>'+esc(t.from)+'</b><span>يحول إلى</span><b>'+esc(t.to)+'</b><span class="amt">'+money(t.amt)+' ريال</span>'
+       +(t.paid?'<span class="pill ok">مدفوع</span><button class="link" data-a="arcPay" data-id="'+a.id+'" data-i="'+i+'">تراجع</button>':'<span class="pill due">ما اندفع</span><button class="btn primary" data-a="arcPay" data-id="'+a.id+'" data-i="'+i+'">تم التحويل</button>')+'</div>').join("");
+    h+='<div class="row" style="margin-top:10px">'+(S.confirm===a.id?'<button class="btn danger" data-a="delArc" data-id="'+a.id+'">أكد حذف الطلعة من الأرشيف</button><button class="btn ghost" data-a="cancel">لا</button>':'<button class="link danger" data-a="delArc" data-id="'+a.id+'">حذف من الأرشيف</button>')+'</div></div></details>';
+  }
+  return h+'</div>';
+}
+function settle(){
+  const people=S.members.map(m=>({id:m.id,name:m.name,share:m.share==null?1:+m.share,paid:0}));
+  let orphan=0;
+  for(const e of S.expenses){ const p=people.find(x=>x.id===e.by); if(p) p.paid+=+e.amount||0; else orphan+=+e.amount||0; }
+  const total=S.expenses.reduce((s,e)=>s+(+e.amount||0),0);
+  const shares=people.reduce((s,p)=>s+p.share,0);
+  people.forEach(p=>{ p.due=shares?total*p.share/shares:0; p.sent=0; p.got=0; });
+  for(const x of S.payments){ const f=people.find(p=>p.id===x.from), t=people.find(p=>p.id===x.to), a=+x.amount||0; if(f) f.sent+=a; if(t) t.got+=a; }
+  people.forEach(p=>{ p.bal=p.paid-p.due+p.sent-p.got; });
+  const cred=people.filter(p=>p.bal>0.005).map(p=>({id:p.id,name:p.name,r:p.bal})).sort((a,b)=>b.r-a.r);
+  const debt=people.filter(p=>p.bal<-0.005).map(p=>({id:p.id,name:p.name,r:-p.bal})).sort((a,b)=>b.r-a.r);
+  const tx=[]; let i=0,j=0;
+  while(i<debt.length&&j<cred.length){ const a=Math.min(debt[i].r,cred[j].r);
+    if(a>=0.01) tx.push({from:debt[i].name,to:cred[j].name,fromId:debt[i].id,toId:cred[j].id,amt:a}); debt[i].r-=a; cred[j].r-=a;
+    if(debt[i].r<0.005) i++; if(cred[j].r<0.005) j++; }
+  return {people,total,shares,tx,orphan};
+}
+
+function vMoney(){
+  const R=settle();
+  let h='<div class="card"><h3>إجمالي المصاريف</h3><div class="big" id="moneyTotal">'+money(R.total)+' ريال</div>'
+    +(R.shares?'<p class="hint">نصيب الحصة الواحدة: '+money(R.total/R.shares)+' ريال، على '+R.shares+' حصة</p>':'<p class="hint">أضف المشاركين وحدد حصصهم عشان يتقسم الحساب</p>')
+    +(R.orphan?'<p class="hint" style="color:var(--danger)">فيه '+money(R.orphan)+' ريال مسجلة باسم عضو محذوف، عدلها أو احذفها من السجل.</p>':"")
+    +'<div class="row" style="margin-top:10px"><button class="btn primary" data-a="expense">تسجيل مصروف</button></div></div>';
+  h+='<div class="card"><h3>باقي ما اندفع</h3>';
+  if(!R.total) h+='<p class="empty" style="padding:12px">ما فيه مصاريف مسجلة للحين</p>';
+  else if(!R.tx.length) h+='<p>الحساب مسدد بالكامل، ما أحد يطلب أحد.</p>';
+  else h+=R.tx.map(t=>'<div class="transfer" data-tx="'+esc(t.from)+'"><b>'+esc(t.from)+'</b><span>يحول إلى</span><b>'+esc(t.to)+'</b><span class="amt">'+money(t.amt)+' ريال</span><button class="btn primary" data-a="pay" data-from="'+t.fromId+'" data-to="'+t.toId+'" data-amt="'+(Math.round(t.amt*100)/100)+'">تم التحويل</button></div>').join("")
+     +'<p class="hint">إذا حوّل أحد نصيبه، اضغط «تم التحويل» عشان ينتقل لقائمة المدفوع.</p>';
+  h+='</div>';
+  if(S.payments.length){
+    h+='<div class="card"><h3>اندفع</h3>'+S.payments.slice().sort((a,b)=>(b.t||0)-(a.t||0)).map(x=>'<div class="transfer"><b>'+esc(nameOf(x.from)||"عضو محذوف")+'</b><span>حوّل إلى</span><b>'+esc(nameOf(x.to)||"عضو محذوف")+'</b><span class="amt">'+money(+x.amount||0)+' ريال</span>'
+      +(S.confirm===x.id?'<button class="btn danger" data-a="unpay" data-id="'+x.id+'">ألغ التحويل</button><button class="btn ghost" data-a="cancel">لا</button>':'<span class="pill ok">مدفوع</span><button class="link" data-a="unpay" data-id="'+x.id+'">تراجع</button>')+'</div>').join("")+'</div>';
+  }
+  if(R.people.length){
+    h+='<div class="card"><h3>تفصيل كل مشارك</h3><div class="scroll"><table class="t"><thead><tr><th>الاسم</th><th>الحصة</th><th>صرف</th><th>نصيبه</th><th>الحالة</th></tr></thead><tbody>'
+     +R.people.map(p=>'<tr><td>'+esc(p.name)+'</td><td>'+p.share+'</td><td>'+money(p.paid)+'</td><td>'+money(p.due)+'</td><td>'+(p.bal<-0.005?'<span class="pill due">عليه '+money(-p.bal)+'</span>':p.bal>0.005?'<span class="pill ok">له '+money(p.bal)+'</span>':(R.total?'<span class="pill ok">مسدد</span>':"-"))+'</td></tr>').join("")
+     +'</tbody></table></div></div>';
+  }
+  if(S.expenses.length){
+    h+='<div class="card"><h3>سجل المصاريف</h3><div class="scroll"><table class="t"><thead><tr><th>البيان</th><th>دفعه</th><th>المبلغ</th><th></th></tr></thead><tbody>'
+     +S.expenses.slice().sort((a,b)=>(b.t||0)-(a.t||0)).map(e=>'<tr><td>'+esc(e.note||"بدون وصف")+'</td><td>'+esc(nameOf(e.by)||"عضو محذوف")+'</td><td>'+money(+e.amount||0)+'</td><td>'
+       +(S.confirm===e.id?'<button class="btn danger" data-a="delExp" data-id="'+e.id+'">احذف</button> <button class="btn ghost" data-a="cancel">لا</button>':'<button class="link" data-a="editExp" data-id="'+e.id+'">تعديل</button> <button class="link danger" data-a="delExp" data-id="'+e.id+'">حذف</button>')+'</td></tr>').join("")
+     +'</tbody></table></div></div>';
+  }
+  return h;
+}
+
+/* ---------- sheets ---------- */
+let sheetCtx=null;
+function sheet(html,ctx){ sheetCtx=ctx||null; $("#layer").innerHTML='<div class="sheet" data-a="closeBg"><div class="panel" role="dialog" aria-modal="true">'+html+'</div></div>'; const f=$("#layer input,#layer select"); if(f) f.focus(); }
+function close(){ $("#layer").innerHTML=""; sheetCtx=null; }
+const catOptions=sel=>sortedCats().map(c=>'<option value="'+c.id+'"'+(c.id===sel?" selected":"")+'>'+esc(c.name)+'</option>').join("");
+const memOptions=sel=>S.members.slice().sort((a,b)=>(a.t||0)-(b.t||0)).map(m=>'<option value="'+m.id+'"'+(m.id===sel?" selected":"")+'>'+esc(m.name)+'</option>').join("");
+
+function openWho(){
+  const list=S.members.slice().sort((a,b)=>(a.t||0)-(b.t||0));
+  sheet('<h3>من أنت؟</h3><p class="hint" style="margin-top:0">اختر اسمك من القائمة، أو أضف نفسك إذا أول مرة تدخل.</p><div class="pick">'
+    +(list.map(m=>'<button class="chip" data-a="pickMe" data-id="'+m.id+'" aria-pressed="'+(m.id===S.me)+'">'+esc(m.name)+'</button>').join("")||'<span class="hint">ما أحد سجل للحين</span>')
+    +'</div><div class="row"><div class="field"><label for="whoNew">اسمك</label><input id="whoNew" maxlength="30" placeholder="مثال: محمد"></div><div class="field" style="flex:0 0 auto;justify-content:flex-end"><button class="btn primary" data-a="joinMe">انضمام</button></div></div>'
+    +'<div class="row" style="margin-top:14px"><button class="btn ghost" data-a="close">إغلاق</button></div>');
+}
+function openAdd(){
+  sheet('<h3>إضافة غرض</h3><p class="hint" style="margin-top:0">يظهر كاقتراح باسمك حتى يعتمده أحد من الشباب.</p><div class="row">'
+    +'<div class="field" style="flex-basis:100%"><label for="aName">الغرض</label><input id="aName" maxlength="40" placeholder="مثال: سكر"></div>'
+    +'<div class="field"><label for="aQty">الكمية</label><input id="aQty" maxlength="20" placeholder="مثال: 2 كيس"></div>'
+    +'<div class="field"><label for="aCat">الفئة</label><select id="aCat">'+catOptions(ls.get("azba.lastCat"))+'</select></div></div>'
+    +'<label style="display:flex;gap:8px;align-items:center;margin-top:10px;font-size:14px"><input type="checkbox" id="aMine" style="width:auto"> أنا اللي بجيبه</label>'
+    +'<div class="row" style="margin-top:14px"><button class="btn primary" data-a="saveItem">إضافة</button><button class="btn ghost" data-a="close">إلغاء</button></div>');
+}
+function openEdit(id){
+  const it=S.items.find(i=>i.id===id); if(!it) return;
+  sheet('<h3>تعديل الغرض</h3><div class="row">'
+    +'<div class="field" style="flex-basis:100%"><label for="eName">الغرض</label><input id="eName" maxlength="40" value="'+esc(it.name)+'"></div>'
+    +'<div class="field"><label for="eQty">الكمية</label><input id="eQty" maxlength="20" value="'+esc(it.qty)+'"></div>'
+    +'<div class="field"><label for="eCat">الفئة</label><select id="eCat">'+catOptions(it.cat)+'</select></div>'
+    +'<div class="field" style="flex-basis:100%"><label for="eBy">المسؤول</label><select id="eBy"><option value="">بدون مسؤول</option>'+memOptions(it.by)+'</select></div></div>'
+    +'<div class="row" style="margin-top:14px" id="editBtns"><button class="btn primary" data-a="saveEdit">حفظ</button><button class="btn ghost" data-a="close">إلغاء</button><span style="flex:1"></span><button class="btn danger" data-a="delItem">حذف الغرض</button></div>',{item:id,orig:{name:it.name,qty:it.qty||"",cat:it.cat,by:it.by||""}});
+}
+function openExpense(id){
+  if(!S.members.length){ toast("أضف المشاركين أول"); return; }
+  const e=id?S.expenses.find(x=>x.id===id):null;
+  sheet('<h3>'+(e?"تعديل مصروف":"تسجيل مصروف")+'</h3><div class="row"><div class="field"><label for="xAmt">المبلغ بالريال</label><input id="xAmt" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0" value="'+(e?e.amount:"")+'"></div>'
+    +'<div class="field"><label for="xBy">من دفع</label><select id="xBy">'+memOptions(e?e.by:S.me)+'</select></div>'
+    +'<div class="field" style="flex-basis:100%"><label for="xNote">البيان</label><input id="xNote" maxlength="50" placeholder="مثال: الذبيحة، مقاضي الفطور" value="'+esc(e?e.note:"")+'"></div></div>'
+    +'<div class="row" style="margin-top:14px"><button class="btn primary" data-a="saveExp">حفظ</button><button class="btn ghost" data-a="close">إلغاء</button></div>',{exp:id||null});
+}
+function openCat(){
+  sheet('<h3>فئة جديدة</h3><div class="field"><label for="cName">اسم الفئة</label><input id="cName" maxlength="30" placeholder="مثال: ألعاب الأطفال"></div>'
+    +'<div class="row" style="margin-top:14px"><button class="btn primary" data-a="saveCat">إضافة</button><button class="btn ghost" data-a="close">إلغاء</button></div>');
+}
+
+let adminWait=null;
+function needAdmin(){
+  if(ADMIN) return Promise.resolve(true);
+  sheet('<h3>رمز المشرف</h3><p class="hint" style="margin-top:0">هذي العملية للمشرف فقط.</p><div class="field"><label for="adminPin">الرمز</label><input id="adminPin" type="password" inputmode="numeric" maxlength="10" autocomplete="off"></div>'
+    +'<div class="row" style="margin-top:14px"><button class="btn primary" data-a="adminOk">دخول</button><button class="btn ghost" data-a="close">إلغاء</button></div>');
+  return new Promise(res=>{ adminWait=res; });
+}
+/* ---------- celebration ---------- */
+let tt;
+function toast(m){ show(m,""); }
+function winToast(m){ show(m,"win"); }
+function show(m,cls,ms){ let el=$(".toast"); if(!el){ el=document.createElement("div"); el.setAttribute("role","status"); document.body.appendChild(el); } el.className="toast "+cls; el.textContent=m; clearTimeout(tt); tt=setTimeout(()=>el.remove(),ms||(cls?2600:2200)); }
+function celebrate(cat,n){
+  const c=pick(CHEER_CAT), o={n:nameOf(S.me),c:cat};
+  const fx=$("#fx");
+  fx.innerHTML='<div class="cheer" data-a="closeCheer" role="status"><canvas></canvas><div class="box"><div class="kafo">'+esc(c[0])+'</div><div class="line">'+esc(fill(c[1],o))+'</div><div class="small">'+esc(c[2])+(n?" · "+n+" غرض صار عليك":"")+'</div></div></div>';
+  const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const end=setTimeout(()=>{ fx.innerHTML=""; },3200);
+  fx.firstChild.addEventListener("click",()=>{ clearTimeout(end); fx.innerHTML=""; });
+  if(reduce) return;
+  const cv=fx.querySelector("canvas"), ctx=cv.getContext("2d"), W=cv.width=innerWidth, H=cv.height=innerHeight;
+  const cs=getComputedStyle(document.documentElement), cols=[cs.getPropertyValue("--saffron"),cs.getPropertyValue("--accent"),cs.getPropertyValue("--danger"),"#E8C547","#5AA9E6"];
+  const P=Array.from({length:140},()=>({x:W/2+(Math.random()-.5)*80,y:H*0.45,vx:(Math.random()-.5)*14,vy:-Math.random()*14-4,r:Math.random()*6+4,a:Math.random()*6,va:(Math.random()-.5)*.3,c:cols[Math.floor(Math.random()*cols.length)].trim()}));
+  let f=0; (function step(){ if(!cv.isConnected) return; ctx.clearRect(0,0,W,H);
+    for(const p of P){ p.vy+=.35; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.a+=p.va; ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a); ctx.fillStyle=p.c; ctx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2); ctx.restore(); }
+    if(++f<180) requestAnimationFrame(step); })();
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click",async e=>{
+  const tab=e.target.closest("nav.tabs button");
+  if(tab){ S.tab=tab.dataset.tab; S.confirm=null; ls.set("azba.tab",S.tab); render(); window.scrollTo(0,0); return; }
+  if(e.target.closest("#meBtn")){ openWho(); return; }
+  if(e.target.closest("#fab")){ if(needMe()) openAdd(); return; }
+  const b=e.target.closest("[data-a]"); if(!b) return;
+  const a=b.dataset.a, id=b.dataset.id;
+  if(a==="closeBg"&&e.target!==b) return;
+  if(a==="closeCheer") return;
+  switch(a){
+    case "claim": case "unclaim": case "tick": case "approve": case "approveCat": case "claimCat": case "unclaimCat":
+      S.confirm=null; await act[a](id); break;
+    case "delExp": case "delMember": await act[a](id); break;
+    case "cancel": S.confirm=null; render(); break;
+    case "filter": S.filter=b.dataset.f; render(); break;
+    case "template": await loadTemplate(); break;
+    case "reset": if(!(await needAdmin())) return; if(S.confirm!=="reset"){ S.confirm="reset"; render(); } else { S.confirm=null; await newTrip(); } break;
+    case "who": openWho(); break;
+    case "close": case "closeBg": close(); break;
+    case "edit": openEdit(id); break;
+    case "pickMe": S.me=id; ls.set("azba.me",id); close(); render(); winToast("هلا والله يا "+nameOf(id)); break;
+    case "joinMe": { const n=norm($("#whoNew").value); if(!n){ toast("اكتب اسمك"); return; }
+      const ex=S.members.find(m=>norm(m.name)===n); if(ex){ S.me=ex.id; ls.set("azba.me",ex.id); close(); render(); winToast("هلا والله يا "+n); return; }
+      let nid=null; await guard(async()=>{ nid=await store.add("members",{name:n,share:1,t:Date.now()}); });
+      if(nid){ S.me=nid; ls.set("azba.me",nid); close(); render(); winToast("حياك الله يا "+n+"، نورت الكشتة"); } break; }
+    case "addMember": { const inp=$("#newMem"), n=norm(inp.value); if(!n) return;
+      if(S.members.some(m=>norm(m.name)===n)){ toast("الاسم موجود"); return; }
+      if(await guard(()=>store.add("members",{name:n,share:1,t:Date.now()}))) toast("انضم "+n); break; }
+    case "saveItem": { const n=norm($("#aName").value); if(!n){ toast("اكتب اسم الغرض"); return; }
+      const cid=$("#aCat").value, c=S.cats.find(x=>x.id===cid), mine=$("#aMine").checked;
+      if(itemsOf(cid).some(i=>norm(i.name)===n)){ toast("الغرض موجود في نفس الفئة، عدل كميته بدل ما تضيفه"); return; }
+      ls.set("azba.lastCat",cid);
+      const by=mine?S.me:(c&&c.owner?c.owner:"");
+      if(await guard(()=>store.add("items",{name:n,qty:norm($("#aQty").value),cat:cid,by:by,done:false,sug:true,addedBy:S.me||"",t:Date.now()}))){
+        close(); if(mine) winToast(fill(pick(CHEER_ITEM),{n:nameOf(S.me)})); else toast("أضيف كاقتراح"); } break; }
+    case "saveEdit": { const iid=sheetCtx&&sheetCtx.item, it=S.items.find(i=>i.id===iid); if(!it){ close(); return; }
+      const n=norm($("#eName").value); if(!n){ toast("اسم الغرض مطلوب"); return; }
+      const cid=$("#eCat").value, by=$("#eBy").value;
+      if(itemsOf(cid).some(i=>i.id!==iid&&norm(i.name)===n)){ toast("فيه غرض بنفس الاسم في الفئة"); return; }
+      const o=sheetCtx.orig||{}, patch={}, qv=norm($("#eQty").value);
+      if(n!==o.name) patch.name=n; if(qv!==o.qty) patch.qty=qv; if(cid!==o.cat) patch.cat=cid;
+      if(by!==o.by){ patch.by=by; if(!by) patch.done=false; }
+      if(!Object.keys(patch).length){ close(); return; }  /* only send what this person changed */
+      if(await guard(()=>store.update("items",iid,patch))){ close(); toast("حفظ التعديل"); } break; }
+    case "delItem": { const iid=sheetCtx&&sheetCtx.item; if(!iid) return;
+      if(b.textContent!=="أكد الحذف"){ b.textContent="أكد الحذف"; return; }
+      if(await guard(()=>store.del("items",iid))){ close(); toast("حذف الغرض"); } break; }
+    case "saveExp": { const amt=parseFloat($("#xAmt").value); if(!(amt>0)){ toast("اكتب مبلغ صحيح"); return; }
+      const data={by:$("#xBy").value,amount:Math.round(amt*100)/100,note:norm($("#xNote").value)};
+      const eid=sheetCtx&&sheetCtx.exp;
+      const ok=await guard(()=>eid?store.update("expenses",eid,data):store.add("expenses",Object.assign(data,{t:Date.now()})));
+      if(ok){ close(); toast(eid?"حفظ التعديل":"سجل المصروف"); } break; }
+    case "editExp": openExpense(id); break;
+    case "newCat": openCat(); break;
+    case "saveCat": { const n=norm($("#cName").value); if(!n) return;
+      if(S.cats.some(c=>norm(c.name)===n)){ toast("الفئة موجودة"); return; }
+      const o=S.cats.reduce((m,c)=>Math.max(m,c.order||0),0)+1;
+      if(await guard(()=>store.set("cats","c"+Date.now().toString(36),{name:n,order:o,owner:""}))){ close(); toast("أضيفت الفئة"); } break; }
+    case "saveTrip": { const raw=$("#tMap").value.trim(), mu=safeUrl(raw);
+      if(raw&&!mu){ toast("الرابط لازم يبدأ بـ https، انسخه من زر المشاركة في خرائط جوجل"); return; }
+      const d=$("#tDate").value, en=$("#tEnd").value;
+      if(d&&en&&en<d){ toast("تاريخ العودة قبل تاريخ الطلعة"); return; }
+      if(await guard(()=>store.set("meta","trip",{name:norm($("#tName").value)||"كشتة البر",place:norm($("#tPlace").value),map:mu,date:d,endDate:en,time:$("#tTime").value})))
+        toast(mu&&!isMapUrl(mu)?"حفظت، لكن الرابط ما يبدو من خرائط جوجل":"حفظت بيانات الطلعة");
+      break; }
+    case "pay": { const amt=Math.round(parseFloat(b.dataset.amt)*100)/100; if(!(amt>0)) return;
+      if(await guard(()=>store.add("payments",{from:b.dataset.from,to:b.dataset.to,amount:amt,t:Date.now()}))) winToast("كفو، سجلنا التحويل"); break; }
+    case "unpay": if(S.confirm!==id){ S.confirm=id; render(); return; } S.confirm=null; await guard(()=>store.del("payments",id)); break;
+    case "arcPay": { const a=S.archive.find(x=>x.id===id); if(!a) return; const i=+b.dataset.i;
+      const tr=(a.transfers||[]).map((t,k)=>k===i?Object.assign({},t,{paid:!t.paid}):t);
+      if(await guard(()=>store.update("archive",id,{transfers:tr}))) toast(tr[i].paid?"تم تسجيل التحويل":"رجع غير مدفوع"); break; }
+    case "delArc": if(!(await needAdmin())) return; if(S.confirm!==id){ S.confirm=id; render(); return; } S.confirm=null; if(await guard(()=>store.del("archive",id))) toast("حذفت من الأرشيف"); break;
+    case "expense": if(needMe()) openExpense(); break;
+    case "copy": copySummary(); break;
+    case "copyLink": { const t=inviteLink(); try{ await navigator.clipboard.writeText(t); toast("نسخ الرابط"); }catch(e){ fallback(t); } break; }
+    case "adminOk": { const pin=$("#adminPin").value.trim(); if(!pin) return;
+      if(await checkAdmin(pin)){ ADMIN=pin; ls.set("azba.admin",pin); close(); winToast("أهلا بالمشرف"); if(adminWait){ adminWait(true); adminWait=null; } }
+      else toast("الرمز غير صحيح"); break; }
+  }
+});
+document.addEventListener("change",e=>{ const id=e.target.dataset&&e.target.dataset.share; if(id) act.share(id,e.target.value); });
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){ if($("#fx").innerHTML){ $("#fx").innerHTML=""; return; } if($("#layer").innerHTML){ close(); return; } }
+  if(e.key==="Enter"&&e.target.tagName==="INPUT"&&e.target.type!=="checkbox"){ const map={whoNew:"joinMe",newMem:"addMember",aName:"saveItem",aQty:"saveItem",adminPin:"adminOk",eName:"saveEdit",eQty:"saveEdit",tName:"saveTrip",tPlace:"saveTrip",tMap:"saveTrip",xAmt:"saveExp",xNote:"saveExp",cName:"saveCat"};
+    const a=map[e.target.id]; if(a){ e.preventDefault(); const btn=document.querySelector('[data-a="'+a+'"]'); if(btn) btn.click(); } }
+});
+
+function summaryText(){
+  const T=S.trip; let t="عزبة المطانيخ\n"+(T.name||"كشتة البر")+(T.place?" - "+T.place:"")+"\n"+(whenText(T)?whenText(T)+"\n":"")+(safeUrl(T.map)?"الموقع: "+safeUrl(T.map)+"\n":"")+"\n";
+  for(const c of sortedCats()){ const its=itemsOf(c.id).filter(i=>!i.sug); if(!its.length) continue;
+    t+="*"+c.name+"*\n"; for(const i of its) t+=(i.done?"[تم] ":"[  ] ")+i.name+(i.qty?" ("+i.qty+")":"")+" - "+(i.by?nameOf(i.by):"بدون مسؤول")+"\n"; t+="\n"; }
+  const R=settle(); if(R.total){ t+="*الحساب*\nالإجمالي: "+money(R.total)+" ريال\n"; for(const x of S.payments) t+="[مدفوع] "+(nameOf(x.from)||"عضو محذوف")+" حوّل إلى "+(nameOf(x.to)||"عضو محذوف")+": "+money(+x.amount||0)+" ريال\n";
+    for(const x of R.tx) t+="[باقي] "+x.from+" يحول إلى "+x.to+": "+money(x.amt)+" ريال\n"; }
+  return t;
+}
+function copySummary(){
+  const t=summaryText();
+  try{ navigator.clipboard.writeText(t).then(()=>toast("نسخ الملخص، الصقه في القروب"),()=>fallback(t)); }catch(e){ fallback(t); }
+}
+function fallback(t){ sheet('<h3>انسخ الملخص</h3><textarea id="sumTxt" style="width:100%;height:50vh;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px;font:inherit">'+esc(t)+'</textarea><div class="row" style="margin-top:10px"><button class="btn ghost" data-a="close">إغلاق</button></div>'); const ta=$("#sumTxt"); ta.focus(); ta.select(); }
+
+window.__kashta={S,settle,summaryText,pull};
+render(); boot();
+})();
+</script>
+
+</body>
+</html>
